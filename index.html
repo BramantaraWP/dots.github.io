@@ -35,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        .truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .truncate-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
         .top-bar { border-bottom: 1px solid var(--border); padding: 10px 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; font-weight: 700; }
@@ -54,7 +53,7 @@
 
         .mobile-nav {
             position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100%;
-            background: var(--bg-paper); z-index: 2000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--bg-paper); z-index: 2000; transition: 0.4s;
             padding: 2rem; border-right: 1px solid var(--border);
             display: flex; flex-direction: column; gap: 1.5rem;
         }
@@ -67,20 +66,26 @@
         #viewer { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
         .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; }
 
-        .hero-article { cursor: pointer; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .hero-article { cursor: pointer; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); position: relative; }
         .hero-article img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem; }
         .hero-article h1 { font-family: var(--font-news); font-size: 2.8rem; line-height: 1.1; margin-bottom: 1rem; }
 
-        .side-item { display: flex; gap: 1rem; cursor: pointer; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+        .side-item { display: flex; gap: 1rem; cursor: pointer; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; position: relative; }
         .side-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
         
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 1rem; }
-        .modal-card { background: var(--bg-paper); width: 100%; max-width: 450px; padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border); }
+        .modal-card { background: var(--bg-paper); width: 100%; max-width: 450px; padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border); max-height: 90vh; overflow-y: auto; }
         
-        .btn-black { background: var(--accent); color: var(--bg-paper); border: none; padding: 12px 24px; font-weight: 700; cursor: pointer; width: 100%; border-radius: 4px; margin-top: 10px; text-transform: uppercase; }
-        input, select, textarea { width: 100%; border: 1px solid var(--border); padding: 12px; margin-bottom: 1rem; background: transparent; color: var(--text-main); font-family: var(--font-ui); }
+        .btn-black { background: var(--accent); color: var(--bg-paper); border: none; padding: 12px 24px; font-weight: 700; cursor: pointer; width: 100%; border-radius: 4px; margin-top: 10px; text-transform: uppercase; transition: 0.2s; }
+        .btn-black:hover { opacity: 0.8; }
+        .btn-outline { background: transparent; color: var(--text-main); border: 1px solid var(--border); padding: 8px 16px; font-size: 0.7rem; font-weight: 700; cursor: pointer; border-radius: 4px; }
 
-        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-red); width: 0%; z-index: 2500; }
+        input, select, textarea { width: 100%; border: 1px solid var(--border); padding: 12px; margin-bottom: 1rem; background: transparent; color: var(--text-main); font-family: var(--font-ui); border-radius: 4px; }
+
+        .action-icon { position: absolute; right: 0; top: 0; padding: 5px; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
+        .action-icon:hover { color: var(--accent-red); }
+
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-red); width: 0%; z-index: 2500; transition: width 0.3s; }
 
         @media (max-width: 768px) {
             .news-grid { grid-template-columns: 1fr; }
@@ -103,7 +108,6 @@
         </div>
         <span onclick="goHome(); closeMobileMenu()">UTAMA</span>
         <span onclick="filterCat('POLITIK'); closeMobileMenu()">POLITIK</span>
-        <span onclick="filterCat('KRIMINAL'); closeMobileMenu()">KRIMINAL</span>
         <span onclick="filterCat('TEKNOLOGI'); closeMobileMenu()">TEKNOLOGI</span>
         <hr style="border:0; border-top:1px solid var(--border);">
         <span onclick="openEditor(); closeMobileMenu()" style="color:var(--accent-red)">+ TULIS BERITA</span>
@@ -111,22 +115,22 @@
     </div>
 
     <div class="top-bar">
-        <div id="date-display"></div>
-        <div style="cursor:pointer;" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> THEME</div>
+        <div id="date-display">Senin, 02 Feb 2026</div>
+        <div style="display:flex; gap:15px; align-items:center;">
+            <div style="cursor:pointer;" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> TEMA</div>
+        </div>
     </div>
 
     <header>
-        <div class="mobile-toggle" onclick="openMobileMenu()">
+        <div class="mobile-toggle" onclick="openMenu()">
             <i class="fa-solid fa-bars-staggered"></i>
         </div>
-        <div class="logo" onclick="goHome()">dot. Archives</div>
-        <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 5px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;">Truth • Integrity • Safe</div>
+        <div class="logo" onclick="goHome()">dot. Archive</div>
     </header>
 
     <nav id="desktop-nav">
         <span onclick="goHome()">UTAMA</span>
         <span onclick="filterCat('POLITIK')">POLITIK</span>
-        <span onclick="filterCat('KRIMINAL')">KRIMINAL</span>
         <span onclick="filterCat('TEKNOLOGI')">TEKNOLOGI</span>
         <span onclick="openEditor()" style="color:var(--accent-red)">+ TULIS BERITA</span>
         <span id="auth-btn-desk">SIGN IN</span>
@@ -141,11 +145,7 @@
     </div>
 
     <script>
-        // --- MASKED ENDPOINTS (VERCEL) ---
-        const ENDPOINTS = {
-            READ: "/api/read",
-            UPLOAD: "/api/upload"
-        };
+        const ENDPOINTS = { READ: "/api/read", UPLOAD: "/api/upload" };
 
         let db = [];
         let session = JSON.parse(localStorage.getItem('dot_session')) || null;
@@ -158,12 +158,21 @@
             decode: (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return s; } }
         };
 
-        function openMobileMenu() { document.getElementById('mobile-nav').classList.add('active'); document.getElementById('nav-overlay').style.display = 'block'; }
+        // Helper Waktu
+        function timeAgo(ts) {
+            const diff = Math.floor((Date.now() - ts) / 1000);
+            if (diff < 60) return 'Baru saja';
+            if (diff < 3600) return `${Math.floor(diff/60)} menit lalu`;
+            if (diff < 86400) return `${Math.floor(diff/3600)} jam lalu`;
+            return new Date(ts).toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' });
+        }
+
+        function openMenu() { document.getElementById('mobile-nav').classList.add('active'); document.getElementById('nav-overlay').style.display = 'block'; }
         function closeMobileMenu() { document.getElementById('mobile-nav').classList.remove('active'); document.getElementById('nav-overlay').style.display = 'none'; }
 
         async function loadData() {
+            document.getElementById('progress-bar').style.width = '30%';
             try {
-                // Fetch dari Proxy Vercel
                 const res = await fetch(ENDPOINTS.READ);
                 const html = await res.text();
                 const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -177,28 +186,26 @@
                         const m = imgEl.getAttribute('style').match(/url\(['"]?([^'"]+)['"]?\)/);
                         if(m) img = m[1];
                     }
-                    const rawText = textEl ? textEl.innerText.trim() : "";
-                    const parts = rawText.split('::');
+                    const parts = (textEl ? textEl.innerText.trim() : "").split('::');
                     const ts = w.querySelector('time') ? new Date(w.querySelector('time').getAttribute('datetime')).getTime() : Date.now();
                     const linkEl = w.querySelector('.tgme_widget_message_date');
                     return { type: parts[0], parts, img, timestamp: ts, tgId: linkEl ? linkEl.getAttribute('href').split('/').pop() : null };
                 }).reverse();
-
+                document.getElementById('progress-bar').style.width = '100%';
+                setTimeout(() => document.getElementById('progress-bar').style.width = '0%', 500);
                 renderUI();
             } catch (e) { console.error("Sync error", e); }
         }
 
         function renderUI() {
             const viewer = document.getElementById('viewer');
-            const delIds = db.filter(x => x.type === 'DELETE').map(x => x.parts[1]);
-            const topics = db.filter(x => x.type === 'TOPIC' && !delIds.includes(x.parts[1]));
+            const topics = db.filter(x => x.type === 'TOPIC');
             
-            const authLabel = session ? `LOGOUT (@${session.username.toUpperCase()})` : "SIGN IN";
+            const authText = session ? `LOGOUT (@${session.username.toUpperCase()})` : "SIGN IN";
             const authAction = session ? () => { localStorage.clear(); location.reload(); } : () => showAuthModal('login');
-            
-            document.getElementById('auth-btn-mob').innerText = authLabel;
+            document.getElementById('auth-btn-mob').innerText = authText;
             document.getElementById('auth-btn-mob').onclick = authAction;
-            document.getElementById('auth-btn-desk').innerText = authLabel;
+            document.getElementById('auth-btn-desk').innerText = authText;
             document.getElementById('auth-btn-desk').onclick = authAction;
 
             if(activeId) {
@@ -207,10 +214,7 @@
             }
 
             const filtered = currentFilter === 'ALL' ? topics : topics.filter(t => (t.parts[7] || 'GENERAL') === currentFilter);
-            if(filtered.length === 0) {
-                viewer.innerHTML = `<div style="text-align:center; padding:5rem; color:var(--text-muted);">BELUM ADA BERITA...</div>`;
-                return;
-            }
+            if(filtered.length === 0) { viewer.innerHTML = `<p style="text-align:center; padding:5rem; color:var(--text-muted);">Belum ada berita di kategori ini...</p>`; return; }
 
             const hero = filtered[0];
             const others = filtered.slice(1);
@@ -223,8 +227,9 @@
                             <span style="color:var(--accent-red); font-size:0.75rem; font-weight:800;">${hero.parts[7] || 'GENERAL'}</span>
                             <h1>${sanitize(hero.parts[3])}</h1>
                             <p class="truncate-3" style="color:var(--text-muted); margin:1rem 0; line-height:1.6;">${sanitize(cipher.decode(hero.parts[4]))}</p>
-                            <div style="font-size:0.7rem; font-weight:800; border-top:1px solid var(--border); padding-top:10px;">
-                                BY ${hero.parts[2].toUpperCase()} • ${new Date(parseInt(hero.timestamp)).toLocaleDateString('id-ID')}
+                            <div style="font-size:0.7rem; font-weight:800; border-top:1px solid var(--border); padding-top:10px; display:flex; justify-content:space-between;">
+                                <span>BY ${hero.parts[2].toUpperCase()} • ${timeAgo(parseInt(hero.timestamp))}</span>
+                                ${session && session.username === hero.parts[2] ? `<i class="fa-solid fa-trash action-icon" onclick="event.stopPropagation(); kritikPost('${hero.parts[1]}')"></i>` : `<i class="fa-solid fa-flag action-icon" onclick="event.stopPropagation(); alert('Laporan terkirim')"></i>`}
                             </div>
                         </div>
                     </div>
@@ -232,10 +237,12 @@
                         ${others.map(t => `
                             <div class="side-item" onclick="activeId='${t.parts[1]}'; renderUI();">
                                 ${t.img ? `<img src="${t.img}">` : ''}
-                                <div>
+                                <div style="width:100%">
                                     <span style="color:var(--accent-red); font-size:0.6rem; font-weight:800;">${t.parts[7] || 'GENERAL'}</span>
-                                    <h4 class="truncate-2" style="font-family:var(--font-news); font-size:1rem; line-height:1.2;">${sanitize(t.parts[3])}</h4>
+                                    <h4 class="truncate-3" style="font-family:var(--font-news); font-size:1.1rem; line-height:1.2;">${sanitize(t.parts[3])}</h4>
+                                    <div style="font-size:0.6rem; margin-top:5px; color:var(--text-muted)">${timeAgo(parseInt(t.timestamp))}</div>
                                 </div>
+                                ${session && session.username === t.parts[2] ? `<i class="fa-solid fa-trash action-icon" style="font-size:0.7rem;" onclick="event.stopPropagation(); kritikPost('${t.parts[1]}')"></i>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -244,105 +251,150 @@
         }
 
         function renderDetail(t) {
-            if(!t) return;
-            const delRepIds = db.filter(x => x.type === 'DELETE_REPLY').map(x => x.parts[1]);
-            const comments = db.filter(x => x.type === 'REPLY' && x.parts[1] === t.parts[1] && !delRepIds.includes(x.parts[5]));
-
             document.getElementById('viewer').innerHTML = `
                 <div style="max-width:750px; margin:0 auto;">
-                    <h1 style="font-family:var(--font-news); font-size:3rem; line-height:1.1; margin-bottom:1.5rem; text-align:center;">${sanitize(t.parts[3])}</h1>
+                    <div style="text-align:center; margin-bottom:1rem;"><span class="btn-outline">${t.parts[7] || 'GENERAL'}</span></div>
+                    <h1 style="font-family:var(--font-news); font-size:2.8rem; line-height:1.1; margin-bottom:1.5rem; text-align:center;">${sanitize(t.parts[3])}</h1>
                     <div style="display:flex; justify-content:center; gap:15px; font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border);">
                         <span>BY ${t.parts[2].toUpperCase()}</span>
                         <span>•</span>
-                        <span>${new Date(parseInt(t.timestamp)).toLocaleDateString('id-ID')}</span>
+                        <span>DIBUAT: ${new Date(parseInt(t.timestamp)).toLocaleString('id-ID')}</span>
                     </div>
-                    ${t.img ? `<img src="${t.img}" style="width:100%; border-radius:4px; margin-bottom:2rem;">` : ''}
-                    <div style="font-family:var(--font-news); font-size:1.35rem; line-height:1.8; margin-bottom:4rem;">
-                        ${sanitize(cipher.decode(t.parts[4])).replace(/\n/g, '<br><br>')}
+                    ${t.img ? `<img src="${t.img}" style="width:100%; border-radius:4px; margin-bottom:2rem; border:1px solid var(--border);">` : ''}
+                    <div style="font-family:var(--font-news); font-size:1.3rem; line-height:1.8; margin-bottom:4rem; white-space: pre-wrap;">
+                        ${sanitize(cipher.decode(t.parts[4]))}
                     </div>
-                    <button class="btn-black" onclick="goHome()">KEMBALI KE BERANDA</button>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn-black" onclick="goHome()" style="flex:2">KEMBALI KE BERANDA</button>
+                        <button class="btn-outline" onclick="alert('Link disalin!')" style="flex:1"><i class="fa-solid fa-share"></i> SHARE</button>
+                    </div>
                 </div>
             `;
-            window.scrollTo(0,0);
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        async function compressImage(file) {
+            return new Promise((res) => {
+                const r = new FileReader();
+                r.readAsDataURL(file);
+                r.onload = (e) => {
+                    const img = new Image();
+                    img.src = e.target.result;
+                    img.onload = () => {
+                        const can = document.createElement('canvas');
+                        let w = img.width, h = img.height;
+                        if(w > 1200) { h *= 1200/w; w = 1200; }
+                        can.width = w; can.height = h;
+                        can.getContext('2d').drawImage(img, 0, 0, w, h);
+                        can.toBlob(b => res(b), 'image/jpeg', 0.6);
+                    };
+                };
+            });
         }
 
         async function submitTopic() {
             const t = sanitize(document.getElementById('edT').value);
             const c = document.getElementById('edC').value;
+            const f = document.getElementById('edF').files[0];
             if(!t || !c) return alert("Wajib isi judul dan konten!");
-            
+
             const btn = document.getElementById('pub-btn');
-            btn.disabled = true; btn.innerText = "PUBLISHING...";
-            
+            btn.disabled = true; btn.innerText = "SEDANG MENGIRIM...";
+
             const id = 'ID' + Math.random().toString(36).substr(2, 6).toUpperCase();
-            const text = `TOPIC::${id}::${session.username}::${t}::${cipher.encode(c)}::null::${Date.now()}::${document.getElementById('edCat').value}`;
-            
-            // Kirim ke Proxy Vercel
-            await fetch(ENDPOINTS.UPLOAD, {
+            const caption = `TOPIC::${id}::${session.username}::${t}::${cipher.encode(c)}::null::${Date.now()}::${document.getElementById('edCat').value}`;
+
+            try {
+                if(f) {
+                    const blob = await compressImage(f);
+                    const fd = new FormData();
+                    fd.append('photo', blob, 'news_photo.jpg');
+                    fd.append('caption', caption);
+                    await fetch(ENDPOINTS.UPLOAD, { method: 'POST', body: fd });
+                } else {
+                    await fetch(ENDPOINTS.UPLOAD, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: caption })
+                    });
+                }
+                closeModal();
+                loadData();
+            } catch (e) {
+                alert("Gagal mengirim berita!");
+                btn.disabled = false; btn.innerText = "PUBLISH";
+            }
+        }
+
+        function kritikPost(postId) {
+            if(!confirm("Hapus postingan ini? Tindakan ini tidak bisa dibatalkan.")) return;
+            // Kirim kritik berupa instruksi hapus ke bot
+            fetch(ENDPOINTS.UPLOAD, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text })
+                body: JSON.stringify({ text: `CRITIC::DELETE::${postId}::${session.username}::${Date.now()}` })
+            }).then(() => {
+                alert("Permintaan hapus terkirim ke sistem archive.");
+                loadData();
             });
-            
-            closeModal();
-            setTimeout(loadData, 2000);
         }
 
         function showAuthModal(mode) {
-            document.getElementById('modal-content').innerHTML = mode === 'login' ? `
-                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Identitas Akses</h2>
-                <input type="text" id="logU" placeholder="Username">
-                <input type="password" id="logP" placeholder="Password">
-                <button class="btn-black" onclick="handleAuth()">MASUK</button>
-                <p style="text-align:center; margin-top:1.5rem; font-size:0.8rem; cursor:pointer;" onclick="showAuthModal('reg')">Daftar ID baru</p>
-            ` : `
-                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Pendaftaran</h2>
-                <input type="text" id="regU" placeholder="Username">
-                <input type="password" id="regP" placeholder="Password">
-                <button class="btn-black" onclick="handleReg()">DAFTAR</button>
-                <p style="text-align:center; margin-top:1.5rem; font-size:0.8rem; cursor:pointer;" onclick="showAuthModal('login')">Sudah punya ID? Masuk</p>
+            document.getElementById('modal-content').innerHTML = `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem; text-align:center;">${mode==='login'?'Masuk ke dot.':'Daftar Akun Baru'}</h2>
+                <input type="text" id="authU" placeholder="Username">
+                <input type="password" id="authP" placeholder="Password">
+                <button class="btn-black" onclick="${mode==='login'?'handleLogin()':'handleReg()'}">KONFIRMASI</button>
+                <p style="text-align:center; font-size:0.7rem; margin-top:1rem; cursor:pointer;" onclick="showAuthModal('${mode==='login'?'reg':'login'}')">
+                    ${mode==='login'?'Belum punya akun? Daftar':'Sudah punya akun? Login'}
+                </p>
             `;
             document.getElementById('modal').style.display = 'flex';
         }
 
+        function handleLogin() {
+            const u = document.getElementById('authU').value.trim().toLowerCase();
+            const p = document.getElementById('authP').value;
+            const user = db.find(x => x.type === 'USER' && x.parts[1] === u && x.parts[2] === p);
+            if(user) { 
+                session = { username: u }; 
+                localStorage.setItem('dot_session', JSON.stringify(session)); 
+                location.reload(); 
+            } else alert("Username atau Password salah!");
+        }
+
         async function handleReg() {
-            const u = document.getElementById('regU').value.trim().toLowerCase();
-            const p = document.getElementById('regP').value;
-            if(!u || !p) return;
+            const u = document.getElementById('authU').value.trim().toLowerCase();
+            const p = document.getElementById('authP').value;
+            if(u.length < 3) return alert("Username terlalu pendek!");
             await fetch(ENDPOINTS.UPLOAD, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text: `USER::${u}::${p}::${Date.now()}` })
             });
-            session = { username: u };
-            localStorage.setItem('dot_session', JSON.stringify(session));
+            session = { username: u }; 
+            localStorage.setItem('dot_session', JSON.stringify(session)); 
             location.reload();
-        }
-
-        function handleAuth() {
-            const u = document.getElementById('logU').value.trim().toLowerCase();
-            const p = document.getElementById('logP').value;
-            const user = db.find(x => x.type === 'USER' && x.parts[1] === u && x.parts[2] === p);
-            if(user) {
-                session = { username: u };
-                localStorage.setItem('dot_session', JSON.stringify(session));
-                location.reload();
-            } else alert("Identitas salah!");
         }
 
         function openEditor() {
             if(!session) return showAuthModal('login');
             document.getElementById('modal-content').innerHTML = `
-                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Laporan Baru</h2>
-                <input type="text" id="edT" placeholder="Judul Berita">
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Buat Berita Baru</h2>
+                <label style="font-size:0.7rem; font-weight:800;">JUDUL BERITA</label>
+                <input type="text" id="edT" placeholder="Tulis judul yang menarik...">
+                <label style="font-size:0.7rem; font-weight:800;">KATEGORI</label>
                 <select id="edCat">
-                    <option value="POLITIK">POLITIK</option>
-                    <option value="KRIMINAL">KRIMINAL</option>
-                    <option value="TEKNOLOGI">TEKNOLOGI</option>
                     <option value="GENERAL">GENERAL</option>
+                    <option value="POLITIK">POLITIK</option>
+                    <option value="TEKNOLOGI">TEKNOLOGI</option>
+                    <option value="OPINI">OPINI</option>
                 </select>
-                <textarea id="edC" style="height:150px;" placeholder="Isi berita..."></textarea>
-                <button class="btn-black" id="pub-btn" onclick="submitTopic()">PUBLISH</button>
+                <label style="font-size:0.7rem; font-weight:800;">ISI BERITA</label>
+                <textarea id="edC" placeholder="Sampaikan informasi secara detail..." style="height:150px;"></textarea>
+                <label style="font-size:0.7rem; font-weight:800; display:block; margin-bottom:5px;">FOTO BERITA (OPSIONAL)</label>
+                <input type="file" id="edF" accept="image/*" style="font-size:0.8rem;">
+                <button class="btn-black" id="pub-btn" onclick="submitTopic()">PUBLISH SEKARANG</button>
             `;
             document.getElementById('modal').style.display = 'flex';
         }
@@ -352,17 +404,10 @@
         function filterCat(c) { activeId = null; currentFilter = c; renderUI(); }
         function toggleTheme() {
             const b = document.body;
-            b.setAttribute('data-theme', b.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+            const newTheme = b.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            b.setAttribute('data-theme', newTheme);
         }
 
-        window.onscroll = () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
-
-        document.getElementById('date-display').innerText = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
         loadData();
     </script>
 </body>
