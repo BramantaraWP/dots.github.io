@@ -85,6 +85,11 @@
         .action-icon { position: absolute; right: 0; top: 0; padding: 5px; color: var(--text-muted); cursor: pointer; transition: 0.2s; }
         .action-icon:hover { color: var(--accent-red); }
 
+        /* Comment Section Styles */
+        .comment-box { margin-top: 3rem; border-top: 4px solid var(--accent); padding-top: 2rem; }
+        .comment-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+        .reply-item { margin-left: 2rem; padding: 1rem 0; border-left: 2px solid var(--border); padding-left: 1.5rem; margin-top: 10px; }
+
         #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-red); width: 0%; z-index: 2500; transition: width 0.3s; }
 
         @media (max-width: 768px) {
@@ -115,7 +120,7 @@
     </div>
 
     <div class="top-bar">
-        <div id="date-display">Senin, 02 Feb 2026</div>
+        <div id="date-display">...</div>
         <div style="display:flex; gap:15px; align-items:center;">
             <div style="cursor:pointer;" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> TEMA</div>
         </div>
@@ -158,7 +163,6 @@
             decode: (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return s; } }
         };
 
-        // Helper Waktu
         function timeAgo(ts) {
             const diff = Math.floor((Date.now() - ts) / 1000);
             if (diff < 60) return 'Baru saja';
@@ -214,27 +218,24 @@
             }
 
             const filtered = currentFilter === 'ALL' ? topics : topics.filter(t => (t.parts[7] || 'GENERAL') === currentFilter);
-            if(filtered.length === 0) { viewer.innerHTML = `<p style="text-align:center; padding:5rem; color:var(--text-muted);">Belum ada berita di kategori ini...</p>`; return; }
-
-            const hero = filtered[0];
-            const others = filtered.slice(1);
-
+            
             viewer.innerHTML = `
                 <div class="news-grid">
                     <div class="hero-col">
-                        <div class="hero-article" onclick="activeId='${hero.parts[1]}'; renderUI();">
-                            ${hero.img ? `<img src="${hero.img}">` : ''}
-                            <span style="color:var(--accent-red); font-size:0.75rem; font-weight:800;">${hero.parts[7] || 'GENERAL'}</span>
-                            <h1>${sanitize(hero.parts[3])}</h1>
-                            <p class="truncate-3" style="color:var(--text-muted); margin:1rem 0; line-height:1.6;">${sanitize(cipher.decode(hero.parts[4]))}</p>
+                        ${filtered.length > 0 ? `
+                        <div class="hero-article" onclick="activeId='${filtered[0].parts[1]}'; renderUI();">
+                            ${filtered[0].img ? `<img src="${filtered[0].img}">` : ''}
+                            <span style="color:var(--accent-red); font-size:0.75rem; font-weight:800;">${filtered[0].parts[7] || 'GENERAL'}</span>
+                            <h1>${sanitize(filtered[0].parts[3])}</h1>
+                            <p class="truncate-3" style="color:var(--text-muted); margin:1rem 0; line-height:1.6;">${sanitize(cipher.decode(filtered[0].parts[4]))}</p>
                             <div style="font-size:0.7rem; font-weight:800; border-top:1px solid var(--border); padding-top:10px; display:flex; justify-content:space-between;">
-                                <span>BY ${hero.parts[2].toUpperCase()} • ${timeAgo(parseInt(hero.timestamp))}</span>
-                                ${session && session.username === hero.parts[2] ? `<i class="fa-solid fa-trash action-icon" onclick="event.stopPropagation(); kritikPost('${hero.parts[1]}')"></i>` : `<i class="fa-solid fa-flag action-icon" onclick="event.stopPropagation(); alert('Laporan terkirim')"></i>`}
+                                <span>BY ${filtered[0].parts[2].toUpperCase()} • ${timeAgo(parseInt(filtered[0].timestamp))}</span>
+                                ${session && session.username === filtered[0].parts[2] ? `<i class="fa-solid fa-trash action-icon" onclick="event.stopPropagation(); hapusArtikel('${filtered[0].parts[1]}')"></i>` : ''}
                             </div>
-                        </div>
+                        </div>` : '<p>Belum ada berita...</p>'}
                     </div>
                     <div class="side-col">
-                        ${others.map(t => `
+                        ${filtered.slice(1).map(t => `
                             <div class="side-item" onclick="activeId='${t.parts[1]}'; renderUI();">
                                 ${t.img ? `<img src="${t.img}">` : ''}
                                 <div style="width:100%">
@@ -242,7 +243,7 @@
                                     <h4 class="truncate-3" style="font-family:var(--font-news); font-size:1.1rem; line-height:1.2;">${sanitize(t.parts[3])}</h4>
                                     <div style="font-size:0.6rem; margin-top:5px; color:var(--text-muted)">${timeAgo(parseInt(t.timestamp))}</div>
                                 </div>
-                                ${session && session.username === t.parts[2] ? `<i class="fa-solid fa-trash action-icon" style="font-size:0.7rem;" onclick="event.stopPropagation(); kritikPost('${t.parts[1]}')"></i>` : ''}
+                                ${session && session.username === t.parts[2] ? `<i class="fa-solid fa-trash action-icon" style="font-size:0.7rem;" onclick="event.stopPropagation(); hapusArtikel('${t.parts[1]}')"></i>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -251,6 +252,8 @@
         }
 
         function renderDetail(t) {
+            const comments = db.filter(x => x.type === 'CRITIC' && x.parts[1] === t.parts[1]);
+            
             document.getElementById('viewer').innerHTML = `
                 <div style="max-width:750px; margin:0 auto;">
                     <div style="text-align:center; margin-bottom:1rem;"><span class="btn-outline">${t.parts[7] || 'GENERAL'}</span></div>
@@ -258,32 +261,145 @@
                     <div style="display:flex; justify-content:center; gap:15px; font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border);">
                         <span>BY ${t.parts[2].toUpperCase()}</span>
                         <span>•</span>
-                        <span>DIBUAT: ${new Date(parseInt(t.timestamp)).toLocaleString('id-ID')}</span>
+                        <span>${timeAgo(parseInt(t.timestamp))}</span>
                     </div>
                     ${t.img ? `<img src="${t.img}" style="width:100%; border-radius:4px; margin-bottom:2rem; border:1px solid var(--border);">` : ''}
                     <div style="font-family:var(--font-news); font-size:1.3rem; line-height:1.8; margin-bottom:4rem; white-space: pre-wrap;">
                         ${sanitize(cipher.decode(t.parts[4]))}
                     </div>
-                    <div style="display:flex; gap:10px;">
-                        <button class="btn-black" onclick="goHome()" style="flex:2">KEMBALI KE BERANDA</button>
-                        <button class="btn-outline" onclick="alert('Link disalin!')" style="flex:1"><i class="fa-solid fa-share"></i> SHARE</button>
+                    
+                    <div class="comment-box">
+                        <h3 style="font-family:var(--font-news); font-size:1.8rem; margin-bottom:1.5rem;">Diskusi & Kritik</h3>
+                        ${session ? `
+                            <textarea id="critMsg" placeholder="Tulis kritik atau saran Anda..." style="height:100px;"></textarea>
+                            <button class="btn-black" onclick="submitCritic('${t.parts[1]}')">KIRIM KRITIK</button>
+                        ` : '<p style="font-size:0.8rem; color:var(--text-muted); text-align:center;">Silakan Sign In untuk memberikan kritik.</p>'}
+                        
+                        <div style="margin-top:2rem;">
+                            ${comments.map(c => {
+                                const replies = db.filter(x => x.type === 'REPLY' && x.parts[2] === c.parts[2]); // Match by Critic ID
+                                return `
+                                <div class="comment-item">
+                                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                                        <b style="font-size:0.8rem;">@${c.parts[3].toUpperCase()}</b>
+                                        <span style="font-size:0.6rem; color:var(--text-muted);">${timeAgo(parseInt(c.timestamp))}</span>
+                                    </div>
+                                    <p style="margin:10px 0; font-size:0.95rem; line-height:1.5;">${sanitize(cipher.decode(c.parts[4]))}</p>
+                                    ${session ? `<span style="font-size:0.7rem; color:var(--accent-red); font-weight:700; cursor:pointer;" onclick="openReplyForm('${t.parts[1]}','${c.parts[2]}')">BALAS</span>` : ''}
+                                    
+                                    ${replies.map(r => `
+                                        <div class="reply-item">
+                                            <div style="display:flex; justify-content:space-between;">
+                                                <b style="font-size:0.7rem;">@${r.parts[3].toUpperCase()}</b>
+                                                <span style="font-size:0.6rem; color:var(--text-muted);">${timeAgo(parseInt(r.timestamp))}</span>
+                                            </div>
+                                            <p style="margin-top:5px; font-size:0.9rem;">${sanitize(cipher.decode(r.parts[4]))}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>`;
+                            }).join('')}
+                        </div>
                     </div>
+                    
+                    <button class="btn-black" onclick="goHome()" style="margin-top:3rem;">KEMBALI KE BERANDA</button>
                 </div>
             `;
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
+        async function submitCritic(postId) {
+            const msg = document.getElementById('critMsg').value;
+            if(!msg) return;
+            const critId = 'CR' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            const text = `CRITIC::${postId}::${critId}::${session.username}::${cipher.encode(msg)}::${Date.now()}`;
+            
+            await fetch(ENDPOINTS.UPLOAD, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+            loadData();
+        }
+
+        function openReplyForm(postId, critId) {
+            const msg = prompt("Tulis balasan Anda:");
+            if(!msg) return;
+            const text = `REPLY::${postId}::${critId}::${session.username}::${cipher.encode(msg)}::${Date.now()}`;
+            
+            fetch(ENDPOINTS.UPLOAD, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            }).then(() => loadData());
+        }
+
+        async function hapusArtikel(postId) {
+            if(!confirm("Njir, beneran mau hapus artikel ini?")) return;
+            const text = `DELETE_REQ::${postId}::${session.username}::${Date.now()}`;
+            
+            try {
+                await fetch(ENDPOINTS.UPLOAD, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text })
+                });
+                alert("Permintaan hapus terkirim! Artikel akan segera hilang dari arsip.");
+                loadData();
+            } catch(e) { alert("Gagal koneksi!"); }
+        }
+
+        // --- AUTH & EDITOR (UI Tetap Sama) ---
+        function showAuthModal(mode) {
+            document.getElementById('modal-content').innerHTML = `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem; text-align:center;">${mode==='login'?'Sign In':'Register'}</h2>
+                <input type="text" id="authU" placeholder="Username">
+                <input type="password" id="authP" placeholder="Password">
+                <button class="btn-black" onclick="${mode==='login'?'handleLogin()':'handleReg()'}">CONFIRM</button>
+            `;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function handleLogin() {
+            const u = document.getElementById('authU').value.trim().toLowerCase();
+            const p = document.getElementById('authP').value;
+            const user = db.find(x => x.type === 'USER' && x.parts[1] === u && x.parts[2] === p);
+            if(user) { session = { username: u }; localStorage.setItem('dot_session', JSON.stringify(session)); location.reload(); }
+            else alert("Identitas Salah!");
+        }
+
+        async function handleReg() {
+            const u = document.getElementById('authU').value.trim().toLowerCase();
+            const p = document.getElementById('authP').value;
+            await fetch(ENDPOINTS.UPLOAD, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: `USER::${u}::${p}::${Date.now()}` })
+            });
+            session = { username: u }; localStorage.setItem('dot_session', JSON.stringify(session)); location.reload();
+        }
+
+        function openEditor() {
+            if(!session) return showAuthModal('login');
+            document.getElementById('modal-content').innerHTML = `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Tulis Berita</h2>
+                <input type="text" id="edT" placeholder="Judul Berita">
+                <select id="edCat"><option value="GENERAL">GENERAL</option><option value="POLITIK">POLITIK</option><option value="TEKNOLOGI">TEKNOLOGI</option></select>
+                <textarea id="edC" placeholder="Konten..." style="height:150px;"></textarea>
+                <input type="file" id="edF" accept="image/*">
+                <button class="btn-black" id="pub-btn" onclick="submitTopic()">PUBLISH</button>
+            `;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
         async function compressImage(file) {
             return new Promise((res) => {
-                const r = new FileReader();
-                r.readAsDataURL(file);
+                const r = new FileReader(); r.readAsDataURL(file);
                 r.onload = (e) => {
-                    const img = new Image();
-                    img.src = e.target.result;
+                    const img = new Image(); img.src = e.target.result;
                     img.onload = () => {
                         const can = document.createElement('canvas');
                         let w = img.width, h = img.height;
-                        if(w > 1200) { h *= 1200/w; w = 1200; }
+                        if(w > 1000) { h *= 1000/w; w = 1000; }
                         can.width = w; can.height = h;
                         can.getContext('2d').drawImage(img, 0, 0, w, h);
                         can.toBlob(b => res(b), 'image/jpeg', 0.6);
@@ -296,107 +412,24 @@
             const t = sanitize(document.getElementById('edT').value);
             const c = document.getElementById('edC').value;
             const f = document.getElementById('edF').files[0];
-            if(!t || !c) return alert("Wajib isi judul dan konten!");
-
+            if(!t || !c) return alert("Isi semua!");
+            
             const btn = document.getElementById('pub-btn');
-            btn.disabled = true; btn.innerText = "SEDANG MENGIRIM...";
-
+            btn.disabled = true; btn.innerText = "SENDING...";
+            
             const id = 'ID' + Math.random().toString(36).substr(2, 6).toUpperCase();
-            const caption = `TOPIC::${id}::${session.username}::${t}::${cipher.encode(c)}::null::${Date.now()}::${document.getElementById('edCat').value}`;
+            const cap = `TOPIC::${id}::${session.username}::${t}::${cipher.encode(c)}::null::${Date.now()}::${document.getElementById('edCat').value}`;
 
             try {
                 if(f) {
                     const blob = await compressImage(f);
-                    const fd = new FormData();
-                    fd.append('photo', blob, 'news_photo.jpg');
-                    fd.append('caption', caption);
+                    const fd = new FormData(); fd.append('photo', blob, 'img.jpg'); fd.append('caption', cap);
                     await fetch(ENDPOINTS.UPLOAD, { method: 'POST', body: fd });
                 } else {
-                    await fetch(ENDPOINTS.UPLOAD, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ text: caption })
-                    });
+                    await fetch(ENDPOINTS.UPLOAD, { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({text: cap}) });
                 }
-                closeModal();
-                loadData();
-            } catch (e) {
-                alert("Gagal mengirim berita!");
-                btn.disabled = false; btn.innerText = "PUBLISH";
-            }
-        }
-
-        function kritikPost(postId) {
-            if(!confirm("Hapus postingan ini? Tindakan ini tidak bisa dibatalkan.")) return;
-            // Kirim kritik berupa instruksi hapus ke bot
-            fetch(ENDPOINTS.UPLOAD, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: `CRITIC::DELETE::${postId}::${session.username}::${Date.now()}` })
-            }).then(() => {
-                alert("Permintaan hapus terkirim ke sistem archive.");
-                loadData();
-            });
-        }
-
-        function showAuthModal(mode) {
-            document.getElementById('modal-content').innerHTML = `
-                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem; text-align:center;">${mode==='login'?'Masuk ke dot.':'Daftar Akun Baru'}</h2>
-                <input type="text" id="authU" placeholder="Username">
-                <input type="password" id="authP" placeholder="Password">
-                <button class="btn-black" onclick="${mode==='login'?'handleLogin()':'handleReg()'}">KONFIRMASI</button>
-                <p style="text-align:center; font-size:0.7rem; margin-top:1rem; cursor:pointer;" onclick="showAuthModal('${mode==='login'?'reg':'login'}')">
-                    ${mode==='login'?'Belum punya akun? Daftar':'Sudah punya akun? Login'}
-                </p>
-            `;
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        function handleLogin() {
-            const u = document.getElementById('authU').value.trim().toLowerCase();
-            const p = document.getElementById('authP').value;
-            const user = db.find(x => x.type === 'USER' && x.parts[1] === u && x.parts[2] === p);
-            if(user) { 
-                session = { username: u }; 
-                localStorage.setItem('dot_session', JSON.stringify(session)); 
-                location.reload(); 
-            } else alert("Username atau Password salah!");
-        }
-
-        async function handleReg() {
-            const u = document.getElementById('authU').value.trim().toLowerCase();
-            const p = document.getElementById('authP').value;
-            if(u.length < 3) return alert("Username terlalu pendek!");
-            await fetch(ENDPOINTS.UPLOAD, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: `USER::${u}::${p}::${Date.now()}` })
-            });
-            session = { username: u }; 
-            localStorage.setItem('dot_session', JSON.stringify(session)); 
-            location.reload();
-        }
-
-        function openEditor() {
-            if(!session) return showAuthModal('login');
-            document.getElementById('modal-content').innerHTML = `
-                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Buat Berita Baru</h2>
-                <label style="font-size:0.7rem; font-weight:800;">JUDUL BERITA</label>
-                <input type="text" id="edT" placeholder="Tulis judul yang menarik...">
-                <label style="font-size:0.7rem; font-weight:800;">KATEGORI</label>
-                <select id="edCat">
-                    <option value="GENERAL">GENERAL</option>
-                    <option value="POLITIK">POLITIK</option>
-                    <option value="TEKNOLOGI">TEKNOLOGI</option>
-                    <option value="OPINI">OPINI</option>
-                </select>
-                <label style="font-size:0.7rem; font-weight:800;">ISI BERITA</label>
-                <textarea id="edC" placeholder="Sampaikan informasi secara detail..." style="height:150px;"></textarea>
-                <label style="font-size:0.7rem; font-weight:800; display:block; margin-bottom:5px;">FOTO BERITA (OPSIONAL)</label>
-                <input type="file" id="edF" accept="image/*" style="font-size:0.8rem;">
-                <button class="btn-black" id="pub-btn" onclick="submitTopic()">PUBLISH SEKARANG</button>
-            `;
-            document.getElementById('modal').style.display = 'flex';
+                closeModal(); loadData();
+            } catch(e) { alert("Error!"); btn.disabled = false; }
         }
 
         function closeModal() { document.getElementById('modal').style.display = 'none'; }
@@ -404,10 +437,11 @@
         function filterCat(c) { activeId = null; currentFilter = c; renderUI(); }
         function toggleTheme() {
             const b = document.body;
-            const newTheme = b.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            b.setAttribute('data-theme', newTheme);
+            b.setAttribute('data-theme', b.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
         }
 
+        // Set Real Date
+        document.getElementById('date-display').innerText = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         loadData();
     </script>
 </body>
