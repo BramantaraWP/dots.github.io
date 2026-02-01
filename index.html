@@ -1,4 +1,370 @@
-<script>
-<!-- code by https://www.html-code-generator.com -->
-document.write(unescape('%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22id%22%3E%0A%3Chead%3E%0A%20%20%20%20%3Cmeta%20charset%3D%22UTF-8%22%3E%0A%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%3E%0A%20%20%20%20%3Ctitle%3Edot.%20%7C%20Intelligence%20Journal%3C/title%3E%0A%20%20%20%20%3Clink%20href%3D%22https%3A//fonts.googleapis.com/css2%3Ffamily%3DPlayfair+Display%3Aital%2Cwght@0%2C700%3B0%2C900%3B1%2C700%26family%3DInter%3Awght@300%3B400%3B500%3B600%3B700%3B800%26display%3Dswap%22%20rel%3D%22stylesheet%22%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css%22%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%3Aroot%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20--bg-paper%3A%20%23ffffff%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--accent%3A%20%23000000%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--accent-red%3A%20%23e11d48%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--text-main%3A%20%2318181b%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--text-muted%3A%20%2371717a%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--border%3A%20%23e4e4e7%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--font-news%3A%20%27Playfair%20Display%27%2C%20serif%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--font-ui%3A%20%27Inter%27%2C%20sans-serif%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%5Bdata-theme%3D%22dark%22%5D%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20--bg-paper%3A%20%230a0a0b%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--text-main%3A%20%23f4f4f5%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--border%3A%20%2327272a%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20--accent%3A%20%23ffffff%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20*%20%7B%20margin%3A%200%3B%20padding%3A%200%3B%20box-sizing%3A%20border-box%3B%20%7D%0A%20%20%20%20%20%20%20%20body%20%7B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20background-color%3A%20var%28--bg-paper%29%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20color%3A%20var%28--text-main%29%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20font-family%3A%20var%28--font-ui%29%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20transition%3A%20background%200.3s%2C%20color%200.3s%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20overflow-x%3A%20hidden%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20.truncate-2%20%7B%20display%3A%20-webkit-box%3B%20-webkit-line-clamp%3A%202%3B%20-webkit-box-orient%3A%20vertical%3B%20overflow%3A%20hidden%3B%20%7D%0A%20%20%20%20%20%20%20%20.truncate-3%20%7B%20display%3A%20-webkit-box%3B%20-webkit-line-clamp%3A%203%3B%20-webkit-box-orient%3A%20vertical%3B%20overflow%3A%20hidden%3B%20%7D%0A%20%20%20%20%20%20%20%20/*%20---%20Header%20%26%20Nav%20---%20*/%0A%20%20%20%20%20%20%20%20.top-bar%20%7B%20border-bottom%3A%201px%20solid%20var%28--border%29%3B%20padding%3A%2010px%202rem%3B%20display%3A%20flex%3B%20justify-content%3A%20space-between%3B%20align-items%3A%20center%3B%20font-size%3A%200.7rem%3B%20font-weight%3A%20700%3B%20%7D%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20header%20%7B%20padding%3A%202rem%201rem%3B%20text-align%3A%20center%3B%20border-bottom%3A%204px%20double%20var%28--border%29%3B%20position%3A%20relative%3B%20%7D%0A%20%20%20%20%20%20%20%20.logo%20%7B%20font-family%3A%20var%28--font-news%29%3B%20font-size%3A%203.5rem%3B%20font-weight%3A%20900%3B%20letter-spacing%3A%20-2px%3B%20cursor%3A%20pointer%3B%20%7D%0A%20%20%20%20%20%20%20%20nav%23desktop-nav%20%7B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20flex%3B%20justify-content%3A%20center%3B%20gap%3A%202rem%3B%20padding%3A%201rem%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20border-bottom%3A%201px%20solid%20var%28--border%29%3B%20position%3A%20sticky%3B%20top%3A%200%3B%20%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20var%28--bg-paper%29%3B%20z-index%3A%20100%3B%20font-size%3A%200.8rem%3B%20font-weight%3A%20700%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20nav%20span%20%7B%20cursor%3A%20pointer%3B%20transition%3A%200.2s%3B%20%7D%0A%20%20%20%20%20%20%20%20nav%20span%3Ahover%20%7B%20color%3A%20var%28--accent-red%29%3B%20%7D%0A%20%20%20%20%20%20%20%20.mobile-toggle%20%7B%20display%3A%20none%3B%20font-size%3A%201.5rem%3B%20cursor%3A%20pointer%3B%20position%3A%20absolute%3B%20left%3A%2020px%3B%20top%3A%2050%25%3B%20transform%3A%20translateY%28-50%25%29%3B%20%7D%0A%20%20%20%20%20%20%20%20/*%20---%20Mobile%20Sidebar%20---%20*/%0A%20%20%20%20%20%20%20%20.mobile-nav%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20fixed%3B%20top%3A%200%3B%20left%3A%20-100%25%3B%20width%3A%2080%25%3B%20max-width%3A%20300px%3B%20height%3A%20100%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20background%3A%20var%28--bg-paper%29%3B%20z-index%3A%202000%3B%20transition%3A%200.4s%20cubic-bezier%280.4%2C%200%2C%200.2%2C%201%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202rem%3B%20border-right%3A%201px%20solid%20var%28--border%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20flex%3B%20flex-direction%3A%20column%3B%20gap%3A%201.5rem%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20.mobile-nav.active%20%7B%20left%3A%200%3B%20%7D%0A%20%20%20%20%20%20%20%20.nav-overlay%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20fixed%3B%20inset%3A%200%3B%20background%3A%20rgba%280%2C0%2C0%2C0.5%29%3B%20z-index%3A%201999%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20display%3A%20none%3B%20backdrop-filter%3A%20blur%284px%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20/*%20---%20Content%20Layout%20---%20*/%0A%20%20%20%20%20%20%20%20%23viewer%20%7B%20max-width%3A%201200px%3B%20margin%3A%200%20auto%3B%20padding%3A%202rem%201rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.news-grid%20%7B%20display%3A%20grid%3B%20grid-template-columns%3A%202fr%201fr%3B%20gap%3A%202.5rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.hero-article%20%7B%20cursor%3A%20pointer%3B%20margin-bottom%3A%202rem%3B%20padding-bottom%3A%202rem%3B%20border-bottom%3A%201px%20solid%20var%28--border%29%3B%20%7D%0A%20%20%20%20%20%20%20%20.hero-article%20img%20%7B%20width%3A%20100%25%3B%20max-height%3A%20450px%3B%20object-fit%3A%20cover%3B%20border-radius%3A%204px%3B%20margin-bottom%3A%201.5rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.hero-article%20h1%20%7B%20font-family%3A%20var%28--font-news%29%3B%20font-size%3A%202.8rem%3B%20line-height%3A%201.1%3B%20margin-bottom%3A%201rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.side-item%20%7B%20display%3A%20flex%3B%20gap%3A%201rem%3B%20cursor%3A%20pointer%3B%20padding-bottom%3A%201rem%3B%20border-bottom%3A%201px%20solid%20var%28--border%29%3B%20margin-bottom%3A%201rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.side-item%20img%20%7B%20width%3A%2080px%3B%20height%3A%2080px%3B%20object-fit%3A%20cover%3B%20border-radius%3A%204px%3B%20flex-shrink%3A%200%3B%20%7D%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20/*%20---%20Modal%20%26%20Buttons%20---%20*/%0A%20%20%20%20%20%20%20%20.modal-overlay%20%7B%20position%3A%20fixed%3B%20inset%3A%200%3B%20background%3A%20rgba%280%2C0%2C0%2C0.8%29%3B%20backdrop-filter%3A%20blur%288px%29%3B%20z-index%3A%203000%3B%20display%3A%20none%3B%20align-items%3A%20center%3B%20justify-content%3A%20center%3B%20padding%3A%201rem%3B%20%7D%0A%20%20%20%20%20%20%20%20.modal-card%20%7B%20background%3A%20var%28--bg-paper%29%3B%20width%3A%20100%25%3B%20max-width%3A%20450px%3B%20padding%3A%202.5rem%3B%20border-radius%3A%208px%3B%20border%3A%201px%20solid%20var%28--border%29%3B%20%7D%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20.btn-black%20%7B%20background%3A%20var%28--accent%29%3B%20color%3A%20var%28--bg-paper%29%3B%20border%3A%20none%3B%20padding%3A%2012px%2024px%3B%20font-weight%3A%20700%3B%20cursor%3A%20pointer%3B%20width%3A%20100%25%3B%20border-radius%3A%204px%3B%20margin-top%3A%2010px%3B%20text-transform%3A%20uppercase%3B%20%7D%0A%20%20%20%20%20%20%20%20input%2C%20select%2C%20textarea%20%7B%20width%3A%20100%25%3B%20border%3A%201px%20solid%20var%28--border%29%3B%20padding%3A%2012px%3B%20margin-bottom%3A%201rem%3B%20background%3A%20transparent%3B%20color%3A%20var%28--text-main%29%3B%20font-family%3A%20var%28--font-ui%29%3B%20%7D%0A%20%20%20%20%20%20%20%20%23progress-bar%20%7B%20position%3A%20fixed%3B%20top%3A%200%3B%20left%3A%200%3B%20height%3A%204px%3B%20background%3A%20var%28--accent-red%29%3B%20width%3A%200%25%3B%20z-index%3A%202500%3B%20%7D%0A%20%20%20%20%20%20%20%20@media%20%28max-width%3A%20768px%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20.news-grid%20%7B%20grid-template-columns%3A%201fr%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20nav%23desktop-nav%20%7B%20display%3A%20none%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20.mobile-toggle%20%7B%20display%3A%20block%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20.logo%20%7B%20font-size%3A%202.2rem%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20.hero-article%20h1%20%7B%20font-size%3A%201.8rem%3B%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%3C/style%3E%0A%3C/head%3E%0A%3Cbody%20data-theme%3D%22light%22%3E%0A%20%20%20%20%3Cdiv%20id%3D%22progress-bar%22%3E%3C/div%3E%0A%20%20%20%20%3Cdiv%20id%3D%22nav-overlay%22%20class%3D%22nav-overlay%22%20onclick%3D%22closeMobileMenu%28%29%22%3E%3C/div%3E%0A%20%20%20%20%3C%21--%20Mobile%20Nav%20--%3E%0A%20%20%20%20%3Cdiv%20id%3D%22mobile-nav%22%20class%3D%22mobile-nav%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22display%3Aflex%3B%20justify-content%3Aspace-between%3B%20align-items%3Acenter%3B%20margin-bottom%3A2rem%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-family%3Avar%28--font-news%29%3B%20font-weight%3A900%3B%20font-size%3A1.5rem%3B%22%3ENAVIGASI%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ci%20class%3D%22fa-solid%20fa-xmark%22%20onclick%3D%22closeMobileMenu%28%29%22%20style%3D%22cursor%3Apointer%3B%20font-size%3A1.5rem%3B%22%3E%3C/i%3E%0A%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22goHome%28%29%3B%20closeMobileMenu%28%29%22%3EUTAMA%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27POLITIK%27%29%3B%20closeMobileMenu%28%29%22%3EPOLITIK%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27KRIMINAL%27%29%3B%20closeMobileMenu%28%29%22%3EKRIMINAL%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27TEKNOLOGI%27%29%3B%20closeMobileMenu%28%29%22%3ETEKNOLOGI%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Chr%20style%3D%22border%3A0%3B%20border-top%3A1px%20solid%20var%28--border%29%3B%22%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22openEditor%28%29%3B%20closeMobileMenu%28%29%22%20style%3D%22color%3Avar%28--accent-red%29%22%3E+%20TULIS%20BERITA%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22auth-btn-mob%22%3ESIGN%20IN%3C/span%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cdiv%20class%3D%22top-bar%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22date-display%22%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22cursor%3Apointer%3B%22%20onclick%3D%22toggleTheme%28%29%22%3E%3Ci%20class%3D%22fa-solid%20fa-circle-half-stroke%22%3E%3C/i%3E%20THEME%3C/div%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cheader%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22mobile-toggle%22%20onclick%3D%22openMobileMenu%28%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ci%20class%3D%22fa-solid%20fa-bars-staggered%22%3E%3C/i%3E%0A%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22logo%22%20onclick%3D%22goHome%28%29%22%3Edot.%20Intelligence%3C/div%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-size%3A%200.6rem%3B%20color%3A%20var%28--text-muted%29%3B%20margin-top%3A%205px%3B%20font-weight%3A%20800%3B%20letter-spacing%3A%203px%3B%20text-transform%3A%20uppercase%3B%22%3ETruth%20%u2022%20Integrity%20%u2022%20Safe%3C/div%3E%0A%20%20%20%20%3C/header%3E%0A%20%20%20%20%3Cnav%20id%3D%22desktop-nav%22%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22goHome%28%29%22%3EUTAMA%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27POLITIK%27%29%22%3EPOLITIK%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27KRIMINAL%27%29%22%3EKRIMINAL%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22filterCat%28%27TEKNOLOGI%27%29%22%3ETEKNOLOGI%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20onclick%3D%22openEditor%28%29%22%20style%3D%22color%3Avar%28--accent-red%29%22%3E+%20TULIS%20BERITA%3C/span%3E%0A%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22auth-btn-desk%22%3ESIGN%20IN%3C/span%3E%0A%20%20%20%20%3C/nav%3E%0A%20%20%20%20%3Cdiv%20id%3D%22viewer%22%3E%3C/div%3E%0A%20%20%20%20%3Cdiv%20id%3D%22modal%22%20class%3D%22modal-overlay%22%20onclick%3D%22if%28event.target.id%3D%3D%3D%27modal%27%29%20closeModal%28%29%22%3E%0A%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22modal-card%22%20onclick%3D%22event.stopPropagation%28%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20id%3D%22modal-content%22%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%3C/div%3E%0A%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20const%20CONFIG%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20PROXY%3A%20%22https%3A//api.codetabs.com/v1/proxy/%3Fquest%3D%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20TG_URL%3A%20%22https%3A//t.me/s/B4C4528FDACF130CF0299F43D4AD83D0%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20BOT%3A%20%228401425763%3AAAGzfWOOETNcocI7JCj9zQxBhZZ2fVaworI%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20CID%3A%20%22-1003862398542%22%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20let%20db%20%3D%20%5B%5D%3B%0A%20%20%20%20%20%20%20%20let%20session%20%3D%20JSON.parse%28localStorage.getItem%28%27dot_session%27%29%29%20%7C%7C%20null%3B%0A%20%20%20%20%20%20%20%20let%20activeId%20%3D%20null%3B%0A%20%20%20%20%20%20%20%20let%20currentFilter%20%3D%20%27ALL%27%3B%0A%20%20%20%20%20%20%20%20const%20sanitize%20%3D%20%28t%29%20%3D%3E%20%7B%20const%20d%20%3D%20document.createElement%28%27div%27%29%3B%20d.textContent%20%3D%20t%3B%20return%20d.innerHTML%3B%20%7D%3B%0A%20%20%20%20%20%20%20%20const%20cipher%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20encode%3A%20%28t%29%20%3D%3E%20btoa%28unescape%28encodeURIComponent%28t%29%29%29%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20decode%3A%20%28s%29%20%3D%3E%20%7B%20try%20%7B%20return%20decodeURIComponent%28escape%28atob%28s%29%29%29%3B%20%7D%20catch%28e%29%20%7B%20return%20s%3B%20%7D%20%7D%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20//%20---%20Mobile%20Menu%20Logic%20---%0A%20%20%20%20%20%20%20%20function%20openMobileMenu%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27mobile-nav%27%29.classList.add%28%27active%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27nav-overlay%27%29.style.display%20%3D%20%27block%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20closeMobileMenu%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27mobile-nav%27%29.classList.remove%28%27active%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27nav-overlay%27%29.style.display%20%3D%20%27none%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20loadData%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20try%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20res%20%3D%20await%20fetch%28CONFIG.PROXY%20+%20encodeURIComponent%28CONFIG.TG_URL%20+%20%22%3Fnocache%3D%22%20+%20Date.now%28%29%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20html%20%3D%20await%20res.text%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20doc%20%3D%20new%20DOMParser%28%29.parseFromString%28html%2C%20%27text/html%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20wraps%20%3D%20Array.from%28doc.querySelectorAll%28%27.tgme_widget_message%27%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20db%20%3D%20wraps.map%28w%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20textEl%20%3D%20w.querySelector%28%27.tgme_widget_message_text%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20imgEl%20%3D%20w.querySelector%28%27.tgme_widget_message_photo_wrap%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20linkEl%20%3D%20w.querySelector%28%27.tgme_widget_message_date%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20img%20%3D%20%22%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28imgEl%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20m%20%3D%20imgEl.getAttribute%28%27style%27%29.match%28/url%5C%28%5B%27%22%5D%3F%28%5B%5E%27%22%5D+%29%5B%27%22%5D%3F%5C%29/%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28m%29%20img%20%3D%20m%5B1%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20rawText%20%3D%20textEl%20%3F%20textEl.innerText.trim%28%29%20%3A%20%22%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20parts%20%3D%20rawText.split%28%27%3A%3A%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20ts%20%3D%20w.querySelector%28%27time%27%29%20%3F%20new%20Date%28w.querySelector%28%27time%27%29.getAttribute%28%27datetime%27%29%29.getTime%28%29%20%3A%20Date.now%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%20type%3A%20parts%5B0%5D%2C%20parts%2C%20img%2C%20timestamp%3A%20ts%2C%20tgId%3A%20linkEl%20%3F%20linkEl.getAttribute%28%27href%27%29.split%28%27/%27%29.pop%28%29%20%3A%20null%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%29.reverse%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20renderUI%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20catch%20%28e%29%20%7B%20console.error%28%22Sync%20error%22%2C%20e%29%3B%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20renderUI%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20viewer%20%3D%20document.getElementById%28%27viewer%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20delIds%20%3D%20db.filter%28x%20%3D%3E%20x.type%20%3D%3D%3D%20%27DELETE%27%29.map%28x%20%3D%3E%20x.parts%5B1%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20topics%20%3D%20db.filter%28x%20%3D%3E%20x.type%20%3D%3D%3D%20%27TOPIC%27%20%26%26%20%21delIds.includes%28x.parts%5B1%5D%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20//%20Handle%20Auth%20Buttons%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20authLabel%20%3D%20session%20%3F%20%60LOGOUT%20%28@%24%7Bsession.username.toUpperCase%28%29%7D%29%60%20%3A%20%22SIGN%20IN%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20authAction%20%3D%20session%20%3F%20%28%29%20%3D%3E%20%7B%20localStorage.clear%28%29%3B%20location.reload%28%29%3B%20%7D%20%3A%20%28%29%20%3D%3E%20showAuthModal%28%27login%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27auth-btn-mob%27%29.innerText%20%3D%20authLabel%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27auth-btn-mob%27%29.onclick%20%3D%20authAction%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27auth-btn-desk%27%29.innerText%20%3D%20authLabel%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27auth-btn-desk%27%29.onclick%20%3D%20authAction%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28activeId%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20renderDetail%28topics.find%28t%20%3D%3E%20t.parts%5B1%5D%20%3D%3D%3D%20activeId%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20filtered%20%3D%20currentFilter%20%3D%3D%3D%20%27ALL%27%20%3F%20topics%20%3A%20topics.filter%28t%20%3D%3E%20%28t.parts%5B7%5D%20%7C%7C%20%27GENERAL%27%29%20%3D%3D%3D%20currentFilter%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28filtered.length%20%3D%3D%3D%200%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20viewer.innerHTML%20%3D%20%60%3Cdiv%20style%3D%22text-align%3Acenter%3B%20padding%3A5rem%3B%20color%3Avar%28--text-muted%29%3B%22%3EBELUM%20ADA%20BERITA...%3C/div%3E%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20hero%20%3D%20filtered%5B0%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20others%20%3D%20filtered.slice%281%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20viewer.innerHTML%20%3D%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22news-grid%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22hero-col%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22hero-article%22%20onclick%3D%22activeId%3D%27%24%7Bhero.parts%5B1%5D%7D%27%3B%20renderUI%28%29%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bhero.img%20%3F%20%60%3Cimg%20src%3D%22%24%7Bhero.img%7D%22%3E%60%20%3A%20%27%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20style%3D%22color%3Avar%28--accent-red%29%3B%20font-size%3A0.75rem%3B%20font-weight%3A800%3B%22%3E%24%7Bhero.parts%5B7%5D%20%7C%7C%20%27GENERAL%27%7D%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch1%20class%3D%22truncate-3%22%3E%24%7Bsanitize%28hero.parts%5B3%5D%29%7D%3C/h1%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%20class%3D%22truncate-3%22%20style%3D%22color%3Avar%28--text-muted%29%3B%20margin%3A1rem%200%3B%22%3E%24%7Bsanitize%28cipher.decode%28hero.parts%5B4%5D%29%29%7D%3C/p%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-size%3A0.7rem%3B%20font-weight%3A800%3B%20border-top%3A1px%20solid%20var%28--border%29%3B%20padding-top%3A10px%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20BY%20%24%7Bhero.parts%5B2%5D.toUpperCase%28%29%7D%20%u2022%20%24%7Bnew%20Date%28parseInt%28hero.timestamp%29%29.toLocaleDateString%28%27id-ID%27%29%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22side-col%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bothers.map%28t%20%3D%3E%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22side-item%22%20onclick%3D%22activeId%3D%27%24%7Bt.parts%5B1%5D%7D%27%3B%20renderUI%28%29%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bt.img%20%3F%20%60%3Cimg%20src%3D%22%24%7Bt.img%7D%22%3E%60%20%3A%20%27%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20style%3D%22color%3Avar%28--accent-red%29%3B%20font-size%3A0.6rem%3B%20font-weight%3A800%3B%22%3E%24%7Bt.parts%5B7%5D%20%7C%7C%20%27GENERAL%27%7D%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch4%20class%3D%22truncate-2%22%20style%3D%22font-family%3Avar%28--font-news%29%3B%20font-size%3A1rem%3B%20line-height%3A1.2%3B%22%3E%24%7Bsanitize%28t.parts%5B3%5D%29%7D%3C/h4%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60%29.join%28%27%27%29%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%60%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20renderDetail%28t%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21t%29%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20delRepIds%20%3D%20db.filter%28x%20%3D%3E%20x.type%20%3D%3D%3D%20%27DELETE_REPLY%27%29.map%28x%20%3D%3E%20x.parts%5B1%5D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20comments%20%3D%20db.filter%28x%20%3D%3E%20x.type%20%3D%3D%3D%20%27REPLY%27%20%26%26%20x.parts%5B1%5D%20%3D%3D%3D%20t.parts%5B1%5D%20%26%26%20%21delRepIds.includes%28x.parts%5B5%5D%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27viewer%27%29.innerHTML%20%3D%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22max-width%3A750px%3B%20margin%3A0%20auto%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch1%20style%3D%22font-family%3Avar%28--font-news%29%3B%20font-size%3A3rem%3B%20line-height%3A1.1%3B%20margin-bottom%3A1.5rem%3B%20text-align%3Acenter%3B%22%3E%24%7Bsanitize%28t.parts%5B3%5D%29%7D%3C/h1%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22display%3Aflex%3B%20justify-content%3Acenter%3B%20gap%3A15px%3B%20font-size%3A0.8rem%3B%20color%3Avar%28--text-muted%29%3B%20margin-bottom%3A2rem%3B%20padding-bottom%3A1rem%3B%20border-bottom%3A1px%20solid%20var%28--border%29%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%3EBY%20%24%7Bt.parts%5B2%5D.toUpperCase%28%29%7D%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%3E%u2022%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%3E%24%7Bnew%20Date%28parseInt%28t.timestamp%29%29.toLocaleDateString%28%27id-ID%27%29%7D%3C/span%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bsession%20%26%26%20%28session.username%20%3D%3D%3D%20t.parts%5B2%5D%20%7C%7C%20session.username%20%3D%3D%3D%20%27admin%27%29%20%3F%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60%3Ci%20class%3D%22fa-solid%20fa-trash%22%20onclick%3D%22deleteItem%28%27%24%7Bt.parts%5B1%5D%7D%27%2C%20%27%24%7Bt.tgId%7D%27%29%22%20style%3D%22cursor%3Apointer%3B%20color%3Avar%28--accent-red%29%3B%20margin-left%3A10px%3B%22%3E%3C/i%3E%60%20%3A%20%27%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bt.img%20%3F%20%60%3Cimg%20src%3D%22%24%7Bt.img%7D%22%20style%3D%22width%3A100%25%3B%20border-radius%3A4px%3B%20margin-bottom%3A2rem%3B%22%3E%60%20%3A%20%27%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-family%3Avar%28--font-news%29%3B%20font-size%3A1.35rem%3B%20line-height%3A1.8%3B%20margin-bottom%3A4rem%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bsanitize%28cipher.decode%28t.parts%5B4%5D%29%29.replace%28/%5Cn/g%2C%20%27%3Cbr%3E%3Cbr%3E%27%29%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22border-top%3A3px%20solid%20var%28--accent%29%3B%20padding-top%3A2rem%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch3%20style%3D%22font-family%3Avar%28--font-news%29%3B%20font-size%3A1.5rem%3B%20margin-bottom%3A2rem%3B%22%3EPUBLIC%20OPINION%20%28%24%7Bcomments.length%7D%29%3C/h3%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bsession%20%3F%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20id%3D%22reply-box%22%20style%3D%22height%3A100px%3B%22%20placeholder%3D%22Tuliskan%20pendapat%20Lu...%22%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22btn-black%22%20style%3D%22width%3Aauto%3B%20margin-bottom%3A2rem%3B%22%20onclick%3D%22submitReply%28%27%24%7Bt.parts%5B1%5D%7D%27%29%22%3EPOST%20OPINION%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60%20%3A%20%27%3Cp%20style%3D%22margin-bottom%3A2rem%3B%20font-size%3A0.9rem%3B%22%3ESign%20in%20untuk%20memberikan%20pendapat.%3C/p%3E%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bcomments.map%28c%20%3D%3E%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22padding%3A1.5rem%200%3B%20border-bottom%3A1px%20solid%20var%28--border%29%3B%20position%3Arelative%3B%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-weight%3A900%3B%20font-size%3A0.75rem%3B%20margin-bottom%3A8px%3B%20color%3Avar%28--accent-red%29%3B%22%3E@%24%7Bc.parts%5B2%5D.toUpperCase%28%29%7D%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-size%3A1rem%3B%20line-height%3A1.5%3B%22%3E%24%7Bsanitize%28cipher.decode%28c.parts%5B3%5D%29%29%7D%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%24%7Bsession%20%26%26%20%28session.username%20%3D%3D%3D%20c.parts%5B2%5D%20%7C%7C%20session.username%20%3D%3D%3D%20%27admin%27%29%20%3F%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60%3Ci%20class%3D%22fa-solid%20fa-xmark%22%20onclick%3D%22deleteReply%28%27%24%7Bc.parts%5B5%5D%7D%27%2C%20%27%24%7Bc.tgId%7D%27%29%22%20style%3D%22position%3Aabsolute%3B%20right%3A0%3B%20top%3A1.5rem%3B%20cursor%3Apointer%3B%20color%3Avar%28--text-muted%29%3B%22%3E%3C/i%3E%60%20%3A%20%27%27%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60%29.join%28%27%27%29%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20window.scrollTo%280%2C0%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20//%20---%20Core%20Functions%20---%0A%20%20%20%20%20%20%20%20async%20function%20compressImage%28file%2C%20quality%20%3D%200.3%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20Promise%28%28res%29%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20r%20%3D%20new%20FileReader%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20r.readAsDataURL%28file%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20r.onload%20%3D%20%28e%29%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20img%20%3D%20new%20Image%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20img.src%20%3D%20e.target.result%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20img.onload%20%3D%20%28%29%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20can%20%3D%20document.createElement%28%27canvas%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20let%20w%20%3D%20img.width%2C%20h%20%3D%20img.height%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28w%20%3E%201200%29%20%7B%20h%20*%3D%201200/w%3B%20w%20%3D%201200%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20can.width%20%3D%20w%3B%20can.height%20%3D%20h%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20can.getContext%28%272d%27%29.drawImage%28img%2C%200%2C%200%2C%20w%2C%20h%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20can.toBlob%28b%20%3D%3E%20res%28b%29%2C%20%27image/jpeg%27%2C%20quality%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20submitTopic%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20t%20%3D%20sanitize%28document.getElementById%28%27edT%27%29.value%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20c%20%3D%20document.getElementById%28%27edC%27%29.value%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20cat%20%3D%20document.getElementById%28%27edCat%27%29.value%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20f%20%3D%20document.getElementById%28%27edF%27%29.files%5B0%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21t%20%7C%7C%20%21c%29%20return%20alert%28%22Wajib%20isi%20judul%20dan%20konten%21%22%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20btn%20%3D%20document.getElementById%28%27pub-btn%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20btn.disabled%20%3D%20true%3B%20btn.innerText%20%3D%20%22COMPRESSING%20%26%20PUBLISHING...%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20blob%20%3D%20f%20%3F%20await%20compressImage%28f%29%20%3A%20null%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20id%20%3D%20%27ID%27%20+%20Math.random%28%29.toString%2836%29.substr%282%2C%206%29.toUpperCase%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20text%20%3D%20%60TOPIC%3A%3A%24%7Bid%7D%3A%3A%24%7Bsession.username%7D%3A%3A%24%7Bt%7D%3A%3A%24%7Bcipher.encode%28c%29%7D%3A%3Anull%3A%3A%24%7BDate.now%28%29%7D%3A%3A%24%7Bcat%7D%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20fd%20%3D%20new%20FormData%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20fd.append%28%27chat_id%27%2C%20CONFIG.CID%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28blob%29%20%7B%20fd.append%28%27photo%27%2C%20blob%2C%20%27img.jpg%27%29%3B%20fd.append%28%27caption%27%2C%20text%29%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20else%20%7B%20fd.append%28%27text%27%2C%20text%29%3B%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/%24%7Bblob%20%3F%20%27sendPhoto%27%20%3A%20%27sendMessage%27%7D%60%2C%20%7B%20method%3A%20%27POST%27%2C%20body%3A%20fd%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20closeModal%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout%28loadData%2C%202000%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20submitReply%28topicId%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20val%20%3D%20document.getElementById%28%27reply-box%27%29.value.trim%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21val%29%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20rid%20%3D%20%27R%27%20+%20Math.random%28%29.toString%2836%29.substr%282%2C%206%29.toUpperCase%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20text%20%3D%20%60REPLY%3A%3A%24%7BtopicId%7D%3A%3A%24%7Bsession.username%7D%3A%3A%24%7Bcipher.encode%28val%29%7D%3A%3A%24%7BDate.now%28%29%7D%3A%3A%24%7Brid%7D%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/sendMessage%60%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20headers%3A%20%7B%27Content-Type%27%3A%20%27application/json%27%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body%3A%20JSON.stringify%28%7B%20chat_id%3A%20CONFIG.CID%2C%20text%3A%20text%20%7D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27reply-box%27%29.value%20%3D%20%22%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout%28loadData%2C%202000%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20deleteItem%28id%2C%20tgId%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21confirm%28%22Hapus%20artikel%20permanen%3F%22%29%29%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/sendMessage%60%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20headers%3A%20%7B%27Content-Type%27%3A%20%27application/json%27%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body%3A%20JSON.stringify%28%7B%20chat_id%3A%20CONFIG.CID%2C%20text%3A%20%60DELETE%3A%3A%24%7Bid%7D%3A%3A%24%7Bsession.username%7D%60%20%7D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28tgId%29%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/deleteMessage%3Fchat_id%3D%24%7BCONFIG.CID%7D%26message_id%3D%24%7BtgId%7D%60%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20activeId%20%3D%20null%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout%28loadData%2C%202000%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20deleteReply%28rid%2C%20tgId%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21confirm%28%22Hapus%20opini%20ini%3F%22%29%29%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/sendMessage%60%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20headers%3A%20%7B%27Content-Type%27%3A%20%27application/json%27%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body%3A%20JSON.stringify%28%7B%20chat_id%3A%20CONFIG.CID%2C%20text%3A%20%60DELETE_REPLY%3A%3A%24%7Brid%7D%3A%3A%24%7Bsession.username%7D%60%20%7D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28tgId%29%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/deleteMessage%3Fchat_id%3D%24%7BCONFIG.CID%7D%26message_id%3D%24%7BtgId%7D%60%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20setTimeout%28loadData%2C%202000%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20//%20---%20Modal%20%26%20UI%20Helpers%20---%0A%20%20%20%20%20%20%20%20function%20showAuthModal%28mode%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27modal-content%27%29.innerHTML%20%3D%20mode%20%3D%3D%3D%20%27login%27%20%3F%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch2%20style%3D%22font-family%3Avar%28--font-news%29%3B%20margin-bottom%3A1.5rem%3B%22%3EAccess%20Identity%3C/h2%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22logU%22%20placeholder%3D%22Username%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22password%22%20id%3D%22logP%22%20placeholder%3D%22Password%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22btn-black%22%20onclick%3D%22handleAuth%28%29%22%3EAUTHORIZE%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%20style%3D%22text-align%3Acenter%3B%20margin-top%3A1.5rem%3B%20font-size%3A0.8rem%3B%22%3EBelum%20punya%20akses%3F%20%3Cspan%20onclick%3D%22showAuthModal%28%27reg%27%29%22%20style%3D%22color%3Avar%28--accent-red%29%3B%20cursor%3Apointer%3B%20font-weight%3A800%3B%22%3EDaftar%20ID%3C/span%3E%3C/p%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%60%20%3A%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch2%20style%3D%22font-family%3Avar%28--font-news%29%3B%20margin-bottom%3A1.5rem%3B%22%3ERegister%20ID%3C/h2%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22regU%22%20placeholder%3D%22Username%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22password%22%20id%3D%22regP%22%20placeholder%3D%22Password%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22btn-black%22%20onclick%3D%22handleReg%28%29%22%3EINITIALIZE%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%20style%3D%22text-align%3Acenter%3B%20margin-top%3A1.5rem%3B%20font-size%3A0.8rem%3B%22%3EPunya%20akses%3F%20%3Cspan%20onclick%3D%22showAuthModal%28%27login%27%29%22%20style%3D%22color%3Avar%28--accent-red%29%3B%20cursor%3Apointer%3B%20font-weight%3A800%3B%22%3EMasuk%3C/span%3E%3C/p%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27modal%27%29.style.display%20%3D%20%27flex%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20async%20function%20handleReg%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20u%20%3D%20document.getElementById%28%27regU%27%29.value.trim%28%29.toLowerCase%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20p%20%3D%20document.getElementById%28%27regP%27%29.value%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21u%20%7C%7C%20%21p%29%20return%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20await%20fetch%28%60https%3A//api.telegram.org/bot%24%7BCONFIG.BOT%7D/sendMessage%60%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20method%3A%20%27POST%27%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20headers%3A%20%7B%27Content-Type%27%3A%20%27application/json%27%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body%3A%20JSON.stringify%28%7B%20chat_id%3A%20CONFIG.CID%2C%20text%3A%20%60USER%3A%3A%24%7Bu%7D%3A%3A%24%7Bp%7D%3A%3A%24%7BDate.now%28%29%7D%60%20%7D%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20session%20%3D%20%7B%20username%3A%20u%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20localStorage.setItem%28%27dot_session%27%2C%20JSON.stringify%28session%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20location.reload%28%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20handleAuth%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20u%20%3D%20document.getElementById%28%27logU%27%29.value.trim%28%29.toLowerCase%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20p%20%3D%20document.getElementById%28%27logP%27%29.value%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20user%20%3D%20db.find%28x%20%3D%3E%20x.type%20%3D%3D%3D%20%27USER%27%20%26%26%20x.parts%5B1%5D%20%3D%3D%3D%20u%20%26%26%20x.parts%5B2%5D%20%3D%3D%3D%20p%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28user%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20session%20%3D%20%7B%20username%3A%20u%20%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20localStorage.setItem%28%27dot_session%27%2C%20JSON.stringify%28session%29%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20location.reload%28%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%20else%20alert%28%22Identitas%20tidak%20dikenal%21%22%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20openEditor%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%28%21session%29%20return%20showAuthModal%28%27login%27%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27modal-content%27%29.innerHTML%20%3D%20%60%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ch2%20style%3D%22font-family%3Avar%28--font-news%29%3B%20margin-bottom%3A1.5rem%3B%22%3ENew%20Intelligence%20Record%3C/h2%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22edT%22%20placeholder%3D%22Judul%20Laporan%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cselect%20id%3D%22edCat%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Coption%20value%3D%22POLITIK%22%3EPOLITIK%3C/option%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Coption%20value%3D%22KRIMINAL%22%3EKRIMINAL%3C/option%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Coption%20value%3D%22TEKNOLOGI%22%3ETEKNOLOGI%3C/option%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Coption%20value%3D%22GENERAL%22%3EGENERAL%3C/option%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/select%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctextarea%20id%3D%22edC%22%20style%3D%22height%3A150px%3B%22%20placeholder%3D%22Tuliskan%20temuan%20atau%20narasi...%22%3E%3C/textarea%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20style%3D%22font-size%3A0.6rem%3B%20color%3Avar%28--accent-red%29%3B%20margin-bottom%3A5px%3B%22%3E*Foto%20akan%20dikompres%20otomatis%20%280.3%20quality%29%3C/div%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22file%22%20id%3D%22edF%22%20accept%3D%22image/*%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cbutton%20class%3D%22btn-black%22%20id%3D%22pub-btn%22%20onclick%3D%22submitTopic%28%29%22%3EPUBLISH%20RECORD%3C/button%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%60%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%27modal%27%29.style.display%20%3D%20%27flex%27%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20closeModal%28%29%20%7B%20document.getElementById%28%27modal%27%29.style.display%20%3D%20%27none%27%3B%20%7D%0A%20%20%20%20%20%20%20%20function%20goHome%28%29%20%7B%20activeId%20%3D%20null%3B%20currentFilter%20%3D%20%27ALL%27%3B%20renderUI%28%29%3B%20%7D%0A%20%20%20%20%20%20%20%20function%20filterCat%28c%29%20%7B%20activeId%20%3D%20null%3B%20currentFilter%20%3D%20c%3B%20renderUI%28%29%3B%20%7D%0A%20%20%20%20%20%20%20%20function%20toggleTheme%28%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20b%20%3D%20document.body%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20b.setAttribute%28%27data-theme%27%2C%20b.getAttribute%28%27data-theme%27%29%20%3D%3D%3D%20%27light%27%20%3F%20%27dark%27%20%3A%20%27light%27%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20window.onscroll%20%3D%20%28%29%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20winScroll%20%3D%20document.body.scrollTop%20%7C%7C%20document.documentElement.scrollTop%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20height%20%3D%20document.documentElement.scrollHeight%20-%20document.documentElement.clientHeight%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20const%20scrolled%20%3D%20%28winScroll%20/%20height%29%20*%20100%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20document.getElementById%28%22progress-bar%22%29.style.width%20%3D%20scrolled%20+%20%22%25%22%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20document.getElementById%28%27date-display%27%29.innerText%20%3D%20new%20Date%28%29.toLocaleDateString%28%27id-ID%27%2C%20%7B%20weekday%3A%20%27long%27%2C%20day%3A%20%27numeric%27%2C%20month%3A%20%27long%27%2C%20year%3A%20%27numeric%27%20%7D%29.toUpperCase%28%29%3B%0A%20%20%20%20%20%20%20%20loadData%28%29%3B%0A%20%20%20%20%3C/script%3E%0A%3C/body%3E%0A%3C/html%3E%0A'));
-</script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dot. | Intelligence Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-paper: #ffffff;
+            --accent: #000000;
+            --accent-red: #e11d48;
+            --text-main: #18181b;
+            --text-muted: #71717a;
+            --border: #e4e4e7;
+            --font-news: 'Playfair Display', serif;
+            --font-ui: 'Inter', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-paper: #0a0a0b;
+            --text-main: #f4f4f5;
+            --border: #27272a;
+            --accent: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--bg-paper); 
+            color: var(--text-main); 
+            font-family: var(--font-ui); 
+            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        .truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .truncate-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        .top-bar { border-bottom: 1px solid var(--border); padding: 10px 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; font-weight: 700; }
+        header { padding: 2rem 1rem; text-align: center; border-bottom: 4px double var(--border); position: relative; }
+        .logo { font-family: var(--font-news); font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; cursor: pointer; }
+
+        nav#desktop-nav { 
+            display: flex; justify-content: center; gap: 2rem; padding: 1rem; 
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; 
+            background: var(--bg-paper); z-index: 100; font-size: 0.8rem; font-weight: 700;
+        }
+        nav span { cursor: pointer; transition: 0.2s; }
+        nav span:hover { color: var(--accent-red); }
+
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); }
+
+        .mobile-nav {
+            position: fixed; top: 0; left: -100%; width: 80%; max-width: 300px; height: 100%;
+            background: var(--bg-paper); z-index: 2000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem; border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 1.5rem;
+        }
+        .mobile-nav.active { left: 0; }
+        .nav-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1999;
+            display: none; backdrop-filter: blur(4px);
+        }
+
+        #viewer { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+        .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; }
+
+        .hero-article { cursor: pointer; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .hero-article img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem; }
+        .hero-article h1 { font-family: var(--font-news); font-size: 2.8rem; line-height: 1.1; margin-bottom: 1rem; }
+
+        .side-item { display: flex; gap: 1rem; cursor: pointer; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+        .side-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+        
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-card { background: var(--bg-paper); width: 100%; max-width: 450px; padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border); }
+        
+        .btn-black { background: var(--accent); color: var(--bg-paper); border: none; padding: 12px 24px; font-weight: 700; cursor: pointer; width: 100%; border-radius: 4px; margin-top: 10px; text-transform: uppercase; }
+        input, select, textarea { width: 100%; border: 1px solid var(--border); padding: 12px; margin-bottom: 1rem; background: transparent; color: var(--text-main); font-family: var(--font-ui); }
+
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-red); width: 0%; z-index: 2500; }
+
+        @media (max-width: 768px) {
+            .news-grid { grid-template-columns: 1fr; }
+            nav#desktop-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .logo { font-size: 2.2rem; }
+            .hero-article h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div id="progress-bar"></div>
+    <div id="nav-overlay" class="nav-overlay" onclick="closeMobileMenu()"></div>
+
+    <div id="mobile-nav" class="mobile-nav">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+            <div style="font-family:var(--font-news); font-weight:900; font-size:1.5rem;">NAVIGASI</div>
+            <i class="fa-solid fa-xmark" onclick="closeMobileMenu()" style="cursor:pointer; font-size:1.5rem;"></i>
+        </div>
+        <span onclick="goHome(); closeMobileMenu()">UTAMA</span>
+        <span onclick="filterCat('POLITIK'); closeMobileMenu()">POLITIK</span>
+        <span onclick="filterCat('KRIMINAL'); closeMobileMenu()">KRIMINAL</span>
+        <span onclick="filterCat('TEKNOLOGI'); closeMobileMenu()">TEKNOLOGI</span>
+        <hr style="border:0; border-top:1px solid var(--border);">
+        <span onclick="openEditor(); closeMobileMenu()" style="color:var(--accent-red)">+ TULIS BERITA</span>
+        <span id="auth-btn-mob">SIGN IN</span>
+    </div>
+
+    <div class="top-bar">
+        <div id="date-display"></div>
+        <div style="cursor:pointer;" onclick="toggleTheme()"><i class="fa-solid fa-circle-half-stroke"></i> THEME</div>
+    </div>
+
+    <header>
+        <div class="mobile-toggle" onclick="openMobileMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+        <div class="logo" onclick="goHome()">dot. Intelligence</div>
+        <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 5px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;">Truth • Integrity • Jembrana</div>
+    </header>
+
+    <nav id="desktop-nav">
+        <span onclick="goHome()">UTAMA</span>
+        <span onclick="filterCat('POLITIK')">POLITIK</span>
+        <span onclick="filterCat('KRIMINAL')">KRIMINAL</span>
+        <span onclick="filterCat('TEKNOLOGI')">TEKNOLOGI</span>
+        <span onclick="openEditor()" style="color:var(--accent-red)">+ TULIS BERITA</span>
+        <span id="auth-btn-desk">SIGN IN</span>
+    </nav>
+
+    <div id="viewer"></div>
+
+    <div id="modal" class="modal-overlay" onclick="if(event.target.id==='modal') closeModal()">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- MASKED ENDPOINTS (VERCEL) ---
+        const ENDPOINTS = {
+            READ: "/api/read",
+            UPLOAD: "/api/upload"
+        };
+
+        let db = [];
+        let session = JSON.parse(localStorage.getItem('dot_session')) || null;
+        let activeId = null;
+        let currentFilter = 'ALL';
+
+        const sanitize = (t) => { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
+        const cipher = {
+            encode: (t) => btoa(unescape(encodeURIComponent(t))),
+            decode: (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return s; } }
+        };
+
+        function openMobileMenu() { document.getElementById('mobile-nav').classList.add('active'); document.getElementById('nav-overlay').style.display = 'block'; }
+        function closeMobileMenu() { document.getElementById('mobile-nav').classList.remove('active'); document.getElementById('nav-overlay').style.display = 'none'; }
+
+        async function loadData() {
+            try {
+                // Fetch dari Proxy Vercel
+                const res = await fetch(ENDPOINTS.READ);
+                const html = await res.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const wraps = Array.from(doc.querySelectorAll('.tgme_widget_message'));
+
+                db = wraps.map(w => {
+                    const textEl = w.querySelector('.tgme_widget_message_text');
+                    const imgEl = w.querySelector('.tgme_widget_message_photo_wrap');
+                    let img = "";
+                    if(imgEl) {
+                        const m = imgEl.getAttribute('style').match(/url\(['"]?([^'"]+)['"]?\)/);
+                        if(m) img = m[1];
+                    }
+                    const rawText = textEl ? textEl.innerText.trim() : "";
+                    const parts = rawText.split('::');
+                    const ts = w.querySelector('time') ? new Date(w.querySelector('time').getAttribute('datetime')).getTime() : Date.now();
+                    const linkEl = w.querySelector('.tgme_widget_message_date');
+                    return { type: parts[0], parts, img, timestamp: ts, tgId: linkEl ? linkEl.getAttribute('href').split('/').pop() : null };
+                }).reverse();
+
+                renderUI();
+            } catch (e) { console.error("Sync error", e); }
+        }
+
+        function renderUI() {
+            const viewer = document.getElementById('viewer');
+            const delIds = db.filter(x => x.type === 'DELETE').map(x => x.parts[1]);
+            const topics = db.filter(x => x.type === 'TOPIC' && !delIds.includes(x.parts[1]));
+            
+            const authLabel = session ? `LOGOUT (@${session.username.toUpperCase()})` : "SIGN IN";
+            const authAction = session ? () => { localStorage.clear(); location.reload(); } : () => showAuthModal('login');
+            
+            document.getElementById('auth-btn-mob').innerText = authLabel;
+            document.getElementById('auth-btn-mob').onclick = authAction;
+            document.getElementById('auth-btn-desk').innerText = authLabel;
+            document.getElementById('auth-btn-desk').onclick = authAction;
+
+            if(activeId) {
+                renderDetail(topics.find(t => t.parts[1] === activeId));
+                return;
+            }
+
+            const filtered = currentFilter === 'ALL' ? topics : topics.filter(t => (t.parts[7] || 'GENERAL') === currentFilter);
+            if(filtered.length === 0) {
+                viewer.innerHTML = `<div style="text-align:center; padding:5rem; color:var(--text-muted);">BELUM ADA BERITA...</div>`;
+                return;
+            }
+
+            const hero = filtered[0];
+            const others = filtered.slice(1);
+
+            viewer.innerHTML = `
+                <div class="news-grid">
+                    <div class="hero-col">
+                        <div class="hero-article" onclick="activeId='${hero.parts[1]}'; renderUI();">
+                            ${hero.img ? `<img src="${hero.img}">` : ''}
+                            <span style="color:var(--accent-red); font-size:0.75rem; font-weight:800;">${hero.parts[7] || 'GENERAL'}</span>
+                            <h1>${sanitize(hero.parts[3])}</h1>
+                            <p class="truncate-3" style="color:var(--text-muted); margin:1rem 0; line-height:1.6;">${sanitize(cipher.decode(hero.parts[4]))}</p>
+                            <div style="font-size:0.7rem; font-weight:800; border-top:1px solid var(--border); padding-top:10px;">
+                                BY ${hero.parts[2].toUpperCase()} • ${new Date(parseInt(hero.timestamp)).toLocaleDateString('id-ID')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-col">
+                        ${others.map(t => `
+                            <div class="side-item" onclick="activeId='${t.parts[1]}'; renderUI();">
+                                ${t.img ? `<img src="${t.img}">` : ''}
+                                <div>
+                                    <span style="color:var(--accent-red); font-size:0.6rem; font-weight:800;">${t.parts[7] || 'GENERAL'}</span>
+                                    <h4 class="truncate-2" style="font-family:var(--font-news); font-size:1rem; line-height:1.2;">${sanitize(t.parts[3])}</h4>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderDetail(t) {
+            if(!t) return;
+            const delRepIds = db.filter(x => x.type === 'DELETE_REPLY').map(x => x.parts[1]);
+            const comments = db.filter(x => x.type === 'REPLY' && x.parts[1] === t.parts[1] && !delRepIds.includes(x.parts[5]));
+
+            document.getElementById('viewer').innerHTML = `
+                <div style="max-width:750px; margin:0 auto;">
+                    <h1 style="font-family:var(--font-news); font-size:3rem; line-height:1.1; margin-bottom:1.5rem; text-align:center;">${sanitize(t.parts[3])}</h1>
+                    <div style="display:flex; justify-content:center; gap:15px; font-size:0.8rem; color:var(--text-muted); margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--border);">
+                        <span>BY ${t.parts[2].toUpperCase()}</span>
+                        <span>•</span>
+                        <span>${new Date(parseInt(t.timestamp)).toLocaleDateString('id-ID')}</span>
+                    </div>
+                    ${t.img ? `<img src="${t.img}" style="width:100%; border-radius:4px; margin-bottom:2rem;">` : ''}
+                    <div style="font-family:var(--font-news); font-size:1.35rem; line-height:1.8; margin-bottom:4rem;">
+                        ${sanitize(cipher.decode(t.parts[4])).replace(/\n/g, '<br><br>')}
+                    </div>
+                    <button class="btn-black" onclick="goHome()">KEMBALI KE BERANDA</button>
+                </div>
+            `;
+            window.scrollTo(0,0);
+        }
+
+        async function submitTopic() {
+            const t = sanitize(document.getElementById('edT').value);
+            const c = document.getElementById('edC').value;
+            if(!t || !c) return alert("Wajib isi judul dan konten!");
+            
+            const btn = document.getElementById('pub-btn');
+            btn.disabled = true; btn.innerText = "PUBLISHING...";
+            
+            const id = 'ID' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            const text = `TOPIC::${id}::${session.username}::${t}::${cipher.encode(c)}::null::${Date.now()}::${document.getElementById('edCat').value}`;
+            
+            // Kirim ke Proxy Vercel
+            await fetch(ENDPOINTS.UPLOAD, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text })
+            });
+            
+            closeModal();
+            setTimeout(loadData, 2000);
+        }
+
+        function showAuthModal(mode) {
+            document.getElementById('modal-content').innerHTML = mode === 'login' ? `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Identitas Akses</h2>
+                <input type="text" id="logU" placeholder="Username">
+                <input type="password" id="logP" placeholder="Password">
+                <button class="btn-black" onclick="handleAuth()">MASUK</button>
+                <p style="text-align:center; margin-top:1.5rem; font-size:0.8rem; cursor:pointer;" onclick="showAuthModal('reg')">Daftar ID baru</p>
+            ` : `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Pendaftaran</h2>
+                <input type="text" id="regU" placeholder="Username">
+                <input type="password" id="regP" placeholder="Password">
+                <button class="btn-black" onclick="handleReg()">DAFTAR</button>
+                <p style="text-align:center; margin-top:1.5rem; font-size:0.8rem; cursor:pointer;" onclick="showAuthModal('login')">Sudah punya ID? Masuk</p>
+            `;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        async function handleReg() {
+            const u = document.getElementById('regU').value.trim().toLowerCase();
+            const p = document.getElementById('regP').value;
+            if(!u || !p) return;
+            await fetch(ENDPOINTS.UPLOAD, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: `USER::${u}::${p}::${Date.now()}` })
+            });
+            session = { username: u };
+            localStorage.setItem('dot_session', JSON.stringify(session));
+            location.reload();
+        }
+
+        function handleAuth() {
+            const u = document.getElementById('logU').value.trim().toLowerCase();
+            const p = document.getElementById('logP').value;
+            const user = db.find(x => x.type === 'USER' && x.parts[1] === u && x.parts[2] === p);
+            if(user) {
+                session = { username: u };
+                localStorage.setItem('dot_session', JSON.stringify(session));
+                location.reload();
+            } else alert("Identitas salah!");
+        }
+
+        function openEditor() {
+            if(!session) return showAuthModal('login');
+            document.getElementById('modal-content').innerHTML = `
+                <h2 style="font-family:var(--font-news); margin-bottom:1.5rem;">Laporan Baru</h2>
+                <input type="text" id="edT" placeholder="Judul Berita">
+                <select id="edCat">
+                    <option value="POLITIK">POLITIK</option>
+                    <option value="KRIMINAL">KRIMINAL</option>
+                    <option value="TEKNOLOGI">TEKNOLOGI</option>
+                    <option value="GENERAL">GENERAL</option>
+                </select>
+                <textarea id="edC" style="height:150px;" placeholder="Isi berita..."></textarea>
+                <button class="btn-black" id="pub-btn" onclick="submitTopic()">PUBLISH</button>
+            `;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() { document.getElementById('modal').style.display = 'none'; }
+        function goHome() { activeId = null; currentFilter = 'ALL'; renderUI(); }
+        function filterCat(c) { activeId = null; currentFilter = c; renderUI(); }
+        function toggleTheme() {
+            const b = document.body;
+            b.setAttribute('data-theme', b.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+        }
+
+        window.onscroll = () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        document.getElementById('date-display').innerText = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
+        loadData();
+    </script>
+</body>
+</html>
+
