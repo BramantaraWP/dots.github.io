@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const TG_CHANNEL_URL = "https://t.me/s/B4C4528FDACF130CF0299F43D4AD83D0";
+  const TG_CHANNEL_URL = "https://t.me/s/B4C4528FDACF130CF0299F43D4AD83D3";
   try {
     const response = await fetch(`${TG_CHANNEL_URL}?nocache=${Date.now()}`);
     const html = await response.text();
